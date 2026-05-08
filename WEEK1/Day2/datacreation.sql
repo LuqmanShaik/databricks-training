@@ -1,4 +1,4 @@
-Below is the code for creating a table and insert the data into the table
+
 CREATE TABLE Employees (
     emp_id INT,
     emp_name VARCHAR(50),
