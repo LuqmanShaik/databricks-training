@@ -42,9 +42,7 @@ SELECT s.student_id, s.student_name, s.email, e.enrollment_id, e.course_id, e.en
 FROM students s
 LEFT JOIN enrollments e
 ON s.student_id = e.student_id
-
 UNION
-
 SELECT s.student_id, s.student_name, s.email, e.enrollment_id, e.course_id, e.enrollment_date
 FROM students s
 RIGHT JOIN enrollments e
