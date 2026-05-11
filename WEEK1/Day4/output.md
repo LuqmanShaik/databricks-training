@@ -1,5 +1,3 @@
----
-
     SHOW TABLES ;
 
 | Tables_in_test |
