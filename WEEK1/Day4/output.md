@@ -261,5 +261,3 @@
 | 112      | 2024-02-25 | 750.0        | 2000.0                | -1250.0                                   |
 
 ---
-
-[View on DB Fiddle](https://www.db-fiddle.com/)
