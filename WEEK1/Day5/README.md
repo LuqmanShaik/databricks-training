@@ -8,7 +8,7 @@ week1/
 │
 └── day5/
     ├── sql_window_functions.sql
-    ├── assignment_questions.pdf
+    ├── assignment_questions.sql
     ├── queries.sql
     ├── outputs.md
     └── README.md
