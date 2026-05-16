@@ -24,3 +24,32 @@
 | Suresh        | 6001         | 2022         | Junior        |
 
 ---
+
+---
+**Query #3**
+
+    SELECT 
+    UPPER(customer_name) AS Customer_Name,
+    DATEDIFF(
+      IFNULL(DELIVERY_DATE , CURDATE()),ORDER_DATE)
+      AS delivery_days,
+    TRUNCATE(ORDER_AMOUNT ,1) AS truncated_amount, 
+    CASE 
+    WHEN DELIVERy_DATE IS NULL 
+    THEN 'PENDING'
+    WHEN DATEDIFF(DELIVERY_DATE,ORDER_DATE) = 0 
+    THEN 'SAME-DAY'
+    WHEN DATEDIFF(DELIVERY_DATE,ORDER_DATE)> 3
+    THEN 'DELAYED'
+    ELSE 'NORMAL'
+    END AS delivery_status
+    FROM orders_delivery;
+
+| Customer_Name | delivery_days | truncated_amount | delivery_status |
+| ------------- | ------------- | ---------------- | --------------- |
+| RAJESH        | 4             | 12500.7          | DELAYED         |
+| MEENA         | 0             | 8400.4           | SAME-DAY        |
+| ARUN          | 5             | 15600.9          | DELAYED         |
+| POOJA         | 483           | 9200.1           | PENDING         |
+
+---
