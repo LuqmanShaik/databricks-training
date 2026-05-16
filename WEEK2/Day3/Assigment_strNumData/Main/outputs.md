@@ -25,8 +25,7 @@
 
 ---
 
----
-**Query #3**
+**Query #2**
 
     SELECT 
     UPPER(customer_name) AS Customer_Name,
@@ -51,5 +50,33 @@
 | MEENA         | 0             | 8400.4           | SAME-DAY        |
 | ARUN          | 5             | 15600.9          | DELAYED         |
 | POOJA         | 483           | 9200.1           | PENDING         |
+
+---
+
+**Query #3**
+
+    SELECT 
+    CONCAT(
+      UPPER(LEFT(cust_name , 1)),
+      LOWER(SUBSTRING(cust_name , 2))
+      ) AS customer_name, 
+    MONTHNAME(purchase_date) AS Purchase_month,
+    ROUND(PURCHASE_AMOUNT) AS rouded_amount,
+    ABS(PURCHASE_AMOUNT) AS absolute_amount, 
+    CASE 
+    WHEN purchase_amount > 15000
+    THEN 'High Spender'
+    WHEN PURCHASE_AMOUNT BETWEEN 8000 AND 15000
+    THEN 'Medium'
+    ELSE 'Low Spender'
+    END AS Spending_type
+    FROM customer_spending;
+
+| customer_name | Purchase_month | rouded_amount | absolute_amount | Spending_type |
+| ------------- | -------------- | ------------- | --------------- | ------------- |
+| Amit          | December       | 12001         | 12000.75        | Medium        |
+| Neha          | December       | 8500          | 8500.4          | Medium        |
+| Rohit         | November       | 15501         | 15500.9         | High Spender  |
+| Kavya         | October        | 6000          | 6000.1          | Low Spender   |
 
 ---
