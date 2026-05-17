@@ -46,3 +46,16 @@ This assignment focuses on advanced SQL transformations involving:
 -Real-world HR, banking, and e-commerce simulations
 -Analytical thinking using SQL transformations
 
+---
+📌 Summary
+
+In Week 2 – Day 3, I focused on strengthening Advanced SQL String + Numeric + Date Logic
+
+
+Key improvements:
+
+By the end of the day, I was able to:
+✔ Write String Manipulation
+✔ Handle Date functions
+✔ Use NULL HANDLING and data cleaning 
+✔ Solve Business logic using CASE statements
