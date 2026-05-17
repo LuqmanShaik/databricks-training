@@ -647,3 +647,441 @@
 ---
 
 [View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/4)
+**Schema (MySQL v8)**
+
+    CREATE TABLE salary_time_drift (
+        emp_id INT,
+        emp_name VARCHAR(50),
+        joining_date DATE,
+        salary DECIMAL(10,2),
+        current_date_check DATE
+    );
+    
+    INSERT INTO salary_time_drift VALUES
+    (1,'Karthik','2018-01-01',75000.75,'2025-01-01'),
+    (2,'Veena','2021-06-15',65000.40,'2025-01-01'),
+    (3,'Ravi','2014-03-20',85000.90,'2025-01-01');
+
+---
+
+**Query #1**
+
+    SELECT * FROM salary_time_drift;
+
+| emp_id | emp_name | joining_date | salary   | current_date_check |
+| ------ | -------- | ------------ | -------- | ------------------ |
+| 1      | Karthik  | 2018-01-01   | 75000.75 | 2025-01-01         |
+| 2      | Veena    | 2021-06-15   | 65000.4  | 2025-01-01         |
+| 3      | Ravi     | 2014-03-20   | 85000.9  | 2025-01-01         |
+
+---
+**Query #2**
+
+    SELECT 
+    LOWER(EMP_NAME) AS EMP_NAME,
+    TIMESTAMPDIFF(YEAR, JOINING_DATE, CURRENT_DATE_CHECK) AS Experience_Years,
+    ROUND(SALARY) AS ROUNDED_SALARY,
+    DATEDIFF(CURRENT_DATE_CHECK , JOINING_DATE) AS TOTAL_DAYS,
+    CASE
+    WHEN TIMESTAMPDIFF(
+    YEAR,
+    joining_date,
+    current_date_check
+    ) > 10
+    THEN 'Veteran'
+    WHEN TIMESTAMPDIFF(
+    YEAR,
+    joining_date,
+    current_date_check
+    )
+    BETWEEN 5 AND 10
+    THEN 'Experienced'
+    ELSE 'Fresher'
+    END AS experience_status
+    FROM salary_time_drift;
+
+| EMP_NAME | Experience_Years | ROUNDED_SALARY | TOTAL_DAYS | experience_status |
+| -------- | ---------------- | -------------- | ---------- | ----------------- |
+| karthik  | 7                | 75001          | 2557       | Experienced       |
+| veena    | 3                | 65000          | 1296       | Fresher           |
+| ravi     | 10               | 85001          | 3940       | Experienced       |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
+**Schema (MySQL v8)**
+
+    CREATE TABLE salary_precision (
+        emp_id INT,
+        emp_name VARCHAR(50),
+        salary DECIMAL(10,4),
+        revision_date DATE
+    );
+    
+    INSERT INTO salary_precision VALUES
+    (1,'Ravi',85000.9876,'2025-01-01'),
+    (2,'Veena',65000.1234,'2025-01-02'),
+    (3,'Anil',70000.9999,'2025-01-03');
+
+---
+
+**Query #1**
+
+    SELECT * FROM salary_precision;
+
+| emp_id | emp_name | salary     | revision_date |
+| ------ | -------- | ---------- | ------------- |
+| 1      | Ravi     | 85000.9876 | 2025-01-01    |
+| 2      | Veena    | 65000.1234 | 2025-01-02    |
+| 3      | Anil     | 70000.9999 | 2025-01-03    |
+
+---
+**Query #2**
+
+    SELECT EMP_NAME,
+    ROUND(SALARY,2) AS ROUNDED_SALARY ,
+    TRUNCATE(SALARY,2) AS TRUNCATED_SALARY,
+    ABS(ROUND(SALARY,2) - TRUNCATE(SALARY,2)) AS PRECISION_DIFFERENCE,
+    MONTHNAME(revision_date)
+    AS revision_month,
+    CASE 
+    WHEN ABS(ROUND(SALARY,2) - TRUNCATE(SALARY,2)) > 0
+      THEN 'PRECISION LOSS'
+    ELSE 'STABLE'
+    END AS PRECISION_CHECK
+      FROM salary_precision;
+
+| EMP_NAME | ROUNDED_SALARY | TRUNCATED_SALARY | PRECISION_DIFFERENCE | revision_month | PRECISION_CHECK |
+| -------- | -------------- | ---------------- | -------------------- | -------------- | --------------- |
+| Ravi     | 85000.99       | 85000.98         | 0.01                 | January        | PRECISION LOSS  |
+| Veena    | 65000.12       | 65000.12         | 0.0                  | January        | STABLE          |
+| Anil     | 70001.0        | 70000.99         | 0.01                 | January        | PRECISION LOSS  |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
+**Schema (MySQL v8)**
+
+    CREATE TABLE salary_growth (
+        emp_id INT,
+        emp_name VARCHAR(50),
+        current_salary DECIMAL(10,2),
+        growth_rate DECIMAL(5,2),
+        years_projected INT
+    );
+    
+    INSERT INTO salary_growth VALUES
+    (1,'Karthik',75000.75,10.5,3),
+    (2,'Veena',65000.40,8.0,5),
+    (3,'Ravi',85000.90,12.0,2);
+
+---
+
+**Query #1**
+
+    SELECT * FROM salary_growth;
+
+| emp_id | emp_name | current_salary | growth_rate | years_projected |
+| ------ | -------- | -------------- | ----------- | --------------- |
+| 1      | Karthik  | 75000.75       | 10.5        | 3               |
+| 2      | Veena    | 65000.4        | 8.0         | 5               |
+| 3      | Ravi     | 85000.9        | 12.0        | 2               |
+
+---
+**Query #2**
+
+    SELECT 
+    UPPER(EMP_NAME) AS EMP_NAME,
+    POWER(
+      (1+GROWTH_RATE / 100) , YEARS_PROJECTED)*CURRENT_SALARY
+    AS FUTURE_SALARY,
+    ROUND(
+      POWER(
+        (1+GROWTH_RATE / 100) , YEARS_PROJECTED)*CURRENT_SALARY)
+    AS ROUNDED_PROJECTION,
+    GroWTH_RATE AS GROWTH_PERCENTAGE ,
+    CASE 
+    WHEN(
+      (
+      POWER(
+        (1+GROWTH_RATE / 100) , YEARS_PROJECTED
+      ) * CURRENT_SALARY - CURRENT_SALARY) / CURRENT_SALARY) * 100 > 50
+      THEN 'RAPID GROWTH'
+    WHEN (
+      (
+        POWER(
+          (1+GrowTH_RATE / 100), YEARS_PROJECTED)* CURRENT_SALARY - CURRENT_SALARY) / CURRENT_SALARY)*100 BETWEEN 20 AND 50
+      THEN'Moderate'
+      ELSE'Stable'
+    END AS GROWTH_STATUS 
+    FROM salary_growth;
+
+| EMP_NAME | FUTURE_SALARY      | ROUNDED_PROJECTION | GROWTH_PERCENTAGE | GROWTH_STATUS |
+| -------- | ------------------ | ------------------ | ----------------- | ------------- |
+| KARTHIK  | 101193.45879946875 | 101193             | 10.5              | Moderate      |
+| VEENA    | 95506.91272323075  | 95507              | 8.0               | Moderate      |
+| RAVI     | 106625.12896       | 106625             | 12.0              | Moderate      |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
+**Schema (MySQL v8)**
+
+    CREATE TABLE salary_symmetry (
+        emp_id INT,
+        emp_name VARCHAR(50),
+        salary INT,
+        check_date DATE
+    );
+    
+    INSERT INTO salary_symmetry VALUES
+    (1,'Ravi',7557,'2025-01-01'),
+    (2,'Veena',6506,'2025-01-02'),
+    (3,'Anil',7123,'2025-01-03');
+
+---
+
+**Query #1**
+
+    SELECT * FROM salary_symmetry;
+
+| emp_id | emp_name | salary | check_date |
+| ------ | -------- | ------ | ---------- |
+| 1      | Ravi     | 7557   | 2025-01-01 |
+| 2      | Veena    | 6506   | 2025-01-02 |
+| 3      | Anil     | 7123   | 2025-01-03 |
+
+---
+**Query #2**
+
+    SELECT
+    LOWER(EMP_NAME) AS EMP_NAME,
+    SALARY AS ORIGINAL_SALARY,
+    REVERSE(SALARY) AS REVERSE_SALARY ,
+    DAYNAME(CHECK_DATE) AS Check_Day,
+    CASE
+    WHEN salary = REVERSE(salary)
+    THEN 'Symmetric'
+    ELSE 'Non-Symmetric'
+    END AS symmetry_status
+    FROM salary_symmetry;
+
+| EMP_NAME | ORIGINAL_SALARY | REVERSE_SALARY | Check_Day | symmetry_status |
+| -------- | --------------- | -------------- | --------- | --------------- |
+| ravi     | 7557            | 7557           | Wednesday | Symmetric       |
+| veena    | 6506            | 6056           | Thursday  | Non-Symmetric   |
+| anil     | 7123            | 3217           | Friday    | Non-Symmetric   |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
+**Schema (MySQL v8)**
+
+    CREATE TABLE leap_salary (
+        emp_id INT,
+        emp_name VARCHAR(50),
+        salary DECIMAL(10,2),
+        payment_date DATE
+    );
+    
+    INSERT INTO leap_salary VALUES
+    (1,'Ravi',85000.90,'2024-02-29'),
+    (2,'Veena',65000.40,'2025-02-28'),
+    (3,'Anil',70000.10,'2020-02-29');
+
+---
+
+**Query #1**
+
+    SELECT * FROM leap_salary;
+
+| emp_id | emp_name | salary  | payment_date |
+| ------ | -------- | ------- | ------------ |
+| 1      | Ravi     | 85000.9 | 2024-02-29   |
+| 2      | Veena    | 65000.4 | 2025-02-28   |
+| 3      | Anil     | 70000.1 | 2020-02-29   |
+
+---
+**Query #2**
+
+    SELECT 
+    CONCAT(
+      UPPER(LEFT(EMP_NAME, 1)),
+      LOWER(SUBSTRING(EMP_NAME,2))
+      ) AS EMPLOYEE_NAME,
+    ROUND(SALARY) AS ROUNDED_SALARY,
+    DAYNAME(PAYMENT_DATE),
+    YEAR(PAYMENT_DATE) AS PAYMENT_YEAR,
+    CASE 
+    WHEN (
+      YEAR(PAYMENT_DATE) % 4 =0
+      AND YEAR(PAYMENT_DATE)%100 !=0
+      )
+      THEN 'Leap Year Payment'
+    ELSE 'Normal Payment'
+    END AS LEAP_STATUS
+    FROM leap_salary;
+
+| EMPLOYEE_NAME | ROUNDED_SALARY | DAYNAME(PAYMENT_DATE) | PAYMENT_YEAR | LEAP_STATUS       |
+| ------------- | -------------- | --------------------- | ------------ | ----------------- |
+| Ravi          | 85001          | Thursday              | 2024         | Leap Year Payment |
+| Veena         | 65000          | Friday                | 2025         | Normal Payment    |
+| Anil          | 70000          | Saturday              | 2020         | Leap Year Payment |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
+**Schema (MySQL v8)**
+
+    CREATE TABLE salary_sampling (
+        emp_id INT,
+        emp_name VARCHAR(50),
+        salary DECIMAL(10,2),
+        audit_date DATE
+    );
+    
+    INSERT INTO salary_sampling VALUES
+    (1,'Ravi',85000.90,'2025-01-01'),
+    (2,'Veena',65000.40,'2025-01-02'),
+    (3,'Anil',70000.10,'2025-01-03');
+
+---
+
+**Query #1**
+
+    SELECT * FROM salary_sampling;
+
+| emp_id | emp_name | salary  | audit_date |
+| ------ | -------- | ------- | ---------- |
+| 1      | Ravi     | 85000.9 | 2025-01-01 |
+| 2      | Veena    | 65000.4 | 2025-01-02 |
+| 3      | Anil     | 70000.1 | 2025-01-03 |
+
+---
+**Query #2**
+
+    SELECT 
+    UPPER(EMP_NAME) AS EMP_NAME,
+    ROUND(SALARY) AS ROUNDDED_SALARY,
+    MONTHNAME(AUDIT_date) AS AUDIT_MONTH,
+    RAND(AUDIT_DATE)*100 AS RANDOM_AUDIT_NUMBER,
+    CASE 
+    WHEN RAND()> 0.5 
+    THEN 'SELECTED'
+    ELSE 'NOT SELECTED'
+    END AS AUDIT_STATUS
+    FROM salary_sampling;
+
+| EMP_NAME | ROUNDDED_SALARY | AUDIT_MONTH | RANDOM_AUDIT_NUMBER | AUDIT_STATUS |
+| -------- | --------------- | ----------- | ------------------- | ------------ |
+| RAVI     | 85001           | January     | 38.48937734820822   | NOT SELECTED |
+| VEENA    | 65000           | January     | 63.50768829091237   | NOT SELECTED |
+| ANIL     | 70000           | January     | 88.52599923361652   | SELECTED     |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
+**Schema (MySQL v8)**
+
+    CREATE TABLE salary_ascii (
+        emp_id INT,
+        emp_name VARCHAR(50),
+        salary DECIMAL(10,2),
+        joining_date DATE
+    );
+    
+    INSERT INTO salary_ascii VALUES
+    (1,'Karthik',75000.75,'2020-01-01'),
+    (2,'Veena',65000.40,'2021-06-15'),
+    (3,'Ravi',85000.90,'2019-03-20');
+
+---
+
+**Query #1**
+
+    SELECT * FROM salary_ascii;
+
+| emp_id | emp_name | salary   | joining_date |
+| ------ | -------- | -------- | ------------ |
+| 1      | Karthik  | 75000.75 | 2020-01-01   |
+| 2      | Veena    | 65000.4  | 2021-06-15   |
+| 3      | Ravi     | 85000.9  | 2019-03-20   |
+
+---
+**Query #2**
+
+    SELECT 
+    LOWER(EMP_NAME) AS EMP_NAME,
+    ASCII(LEFT(EMP_NAME,1)) AS ASCII_NUMBER,
+    ROUND(SALARY) AS ROUNDED_SALARY,
+    YEAR(JOINING_DATE) AS JOINING_YEAR,
+    CASE 
+    WHEN (
+      ASCII(LEFT(EMP_NAME,1))) % 2=0
+    THEN 'EVEN ASCII'
+    ELSE 'ODD ASCII'
+    END AS ASCII_STATUS
+    FROM salary_ascii;
+
+| EMP_NAME | ASCII_NUMBER | ROUNDED_SALARY | JOINING_YEAR | ASCII_STATUS |
+| -------- | ------------ | -------------- | ------------ | ------------ |
+| karthik  | 75           | 75001          | 2020         | ODD ASCII    |
+| veena    | 86           | 65000          | 2021         | EVEN ASCII   |
+| ravi     | 82           | 85001          | 2019         | EVEN ASCII   |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
+**Schema (MySQL v8)**
+
+    CREATE TABLE salary_calendar (
+        emp_id INT,
+        emp_name VARCHAR(50),
+        salary DECIMAL(10,2),
+        payment_date DATE
+    );
+    
+    INSERT INTO salary_calendar VALUES
+    (1,'Ravi',85000.90,'2025-01-31'),
+    (2,'Veena',65000.40,'2025-02-28'),
+    (3,'Anil',70000.10,'2025-03-15');
+
+---
+
+**Query #1**
+
+    SELECT * FROM salary_calendar;
+
+| emp_id | emp_name | salary  | payment_date |
+| ------ | -------- | ------- | ------------ |
+| 1      | Ravi     | 85000.9 | 2025-01-31   |
+| 2      | Veena    | 65000.4 | 2025-02-28   |
+| 3      | Anil     | 70000.1 | 2025-03-15   |
+
+---
+**Query #2**
+
+    SELECT 
+    CONCAT(
+      UPPER(LEFT(EMP_NAME , 1)),
+      LOWER(SUBSTRING(EMP_NAME,2))
+      ) AS EMPLOYEE_NAME,
+    LAST_DAY(PAYMENT_DATE) AS MONTH_END,
+    DATEDIFF(LAST_DAY(PAYMENT_DATE) , PAYMENT_DATE) AS REMAINING_DAYS,
+    ROUND(SALARY) AS ROUNDED_SALARY,
+    CASE 
+    WHEN LAST_DAY(PAYMENT_DATE) = PAYMENT_DATE 
+    THEN 'MONTH END PAYMENT'
+    ELSE 'EARLY PAYMENT'
+    END AS PAYMENT_STATUS
+    FROM salary_calendar;
+
+| EMPLOYEE_NAME | MONTH_END  | REMAINING_DAYS | ROUNDED_SALARY | PAYMENT_STATUS    |
+| ------------- | ---------- | -------------- | -------------- | ----------------- |
+| Ravi          | 2025-01-31 | 0              | 85001          | MONTH END PAYMENT |
+| Veena         | 2025-02-28 | 0              | 65000          | MONTH END PAYMENT |
+| Anil          | 2025-03-31 | 16             | 70000          | EARLY PAYMENT     |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
