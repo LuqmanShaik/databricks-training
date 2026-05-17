@@ -1,31 +1,4 @@
-**Schema (MySQL v8)**
-
-    CREATE TABLE employee_login (
-        emp_id INT,
-        emp_name VARCHAR(50),
-        login_time DATETIME,
-        logout_time DATETIME
-    );
-    
-    INSERT INTO employee_login VALUES
-    (1,'Karthik','2025-01-01 09:00:00','2025-01-01 18:00:00'),
-    (2,'Veena','2025-01-01 10:30:00','2025-01-01 17:00:00'),
-    (3,'Ravi','2025-01-01 08:45:00','2025-01-01 20:00:00');
-
----
-
-**Query #1**
-
-    SELECT * FROM employee_login;
-
-| emp_id | emp_name | login_time          | logout_time         |
-| ------ | -------- | ------------------- | ------------------- |
-| 1      | Karthik  | 2025-01-01 09:00:00 | 2025-01-01 18:00:00 |
-| 2      | Veena    | 2025-01-01 10:30:00 | 2025-01-01 17:00:00 |
-| 3      | Ravi     | 2025-01-01 08:45:00 | 2025-01-01 20:00:00 |
-
----
-**Query #2**
+**Query #31**
 
     SELECT 
     UPPER(EMP_NAME) AS EMP_NAME,
@@ -49,35 +22,7 @@
 
 ---
 
-[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
-**Schema (MySQL v8)**
-
-    CREATE TABLE attendance_log (
-        emp_id INT,
-        emp_name VARCHAR(50),
-        check_in DATETIME,
-        check_out DATETIME
-    );
-    
-    INSERT INTO attendance_log VALUES
-    (1,'Ravi','2025-01-02 09:15:00','2025-01-02 18:00:00'),
-    (2,'Anil','2025-01-02 11:00:00','2025-01-02 16:00:00'),
-    (3,'Veena','2025-01-02 08:45:00','2025-01-02 19:30:00');
-
----
-
-**Query #1**
-
-    SELECT * FROM attendance_log;
-
-| emp_id | emp_name | check_in            | check_out           |
-| ------ | -------- | ------------------- | ------------------- |
-| 1      | Ravi     | 2025-01-02 09:15:00 | 2025-01-02 18:00:00 |
-| 2      | Anil     | 2025-01-02 11:00:00 | 2025-01-02 16:00:00 |
-| 3      | Veena    | 2025-01-02 08:45:00 | 2025-01-02 19:30:00 |
-
----
-**Query #2**
+**Query #32**
 
     SELECT 
     CONCAT(
@@ -109,35 +54,7 @@
 
 ---
 
-[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
-**Schema (MySQL v8)**
-
-    CREATE TABLE weekend_monitor (
-        emp_id INT,
-        emp_name VARCHAR(50),
-        login_time DATETIME,
-        activity_score INT
-    );
-    
-    INSERT INTO weekend_monitor VALUES
-    (1,'Karthik','2025-01-04 09:00:00',95),
-    (2,'Veena','2025-01-05 11:00:00',45),
-    (3,'Ravi','2025-01-06 08:00:00',88);
-
----
-
-**Query #1**
-
-    SELECT * FROM weekend_monitor;
-
-| emp_id | emp_name | login_time          | activity_score |
-| ------ | -------- | ------------------- | -------------- |
-| 1      | Karthik  | 2025-01-04 09:00:00 | 95             |
-| 2      | Veena    | 2025-01-05 11:00:00 | 45             |
-| 3      | Ravi     | 2025-01-06 08:00:00 | 88             |
-
----
-**Query #2**
+**Query #33**
 
     SELECT 
     LOWER(EMP_NAME) AS EMP_NAME,
@@ -161,34 +78,7 @@
 
 ---
 
-[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
-**Schema (MySQL v8)**
-
-    CREATE TABLE login_discipline (
-        emp_id INT,
-        emp_name VARCHAR(50),
-        login_time DATETIME
-    );
-    
-    INSERT INTO login_discipline VALUES
-    (1,'Ravi','2025-01-01 08:45:00'),
-    (2,'Anil','2025-01-01 10:15:00'),
-    (3,'Veena','2025-01-01 09:05:00');
-
----
-
-**Query #1**
-
-    SELECT * FROM login_discipline;
-
-| emp_id | emp_name | login_time          |
-| ------ | -------- | ------------------- |
-| 1      | Ravi     | 2025-01-01 08:45:00 |
-| 2      | Anil     | 2025-01-01 10:15:00 |
-| 3      | Veena    | 2025-01-01 09:05:00 |
-
----
-**Query #2**
+**Query #34**
 
     SELECT 
     UPPER(EMP_NAME) AS EMP_NAME ,
@@ -212,35 +102,7 @@
 
 ---
 
-[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
-**Schema (MySQL v8)**
-
-    CREATE TABLE performance_tracker (
-        emp_id INT,
-        emp_name VARCHAR(50),
-        performance_score DECIMAL(5,2),
-        review_date DATE
-    );
-    
-    INSERT INTO performance_tracker VALUES
-    (1,'Karthik',95.50,'2025-01-01'),
-    (2,'Veena',72.40,'2025-01-02'),
-    (3,'Ravi',88.90,'2025-01-03');
-
----
-
-**Query #1**
-
-    SELECT * FROM performance_tracker;
-
-| emp_id | emp_name | performance_score | review_date |
-| ------ | -------- | ----------------- | ----------- |
-| 1      | Karthik  | 95.5              | 2025-01-01  |
-| 2      | Veena    | 72.4              | 2025-01-02  |
-| 3      | Ravi     | 88.9              | 2025-01-03  |
-
----
-**Query #2**
+**Query #35**
 
     SELECT 
     CONCAT(
@@ -266,5 +128,3 @@
 | Ravi     | 89            | 88.9           | Friday     | GOOD               |
 
 ---
-
-[View on DB Fiddle](https://www.db-fiddle.com/f/eSnxh3Wzd51GpaoxWrkZaL/5)
