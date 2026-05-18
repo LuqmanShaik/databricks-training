@@ -1,10 +1,10 @@
-# 📁 WEEK2 – DAY3
+# 📁 WEEK2 – DAY4
 
 ## 📂 Folder Structure
 
 WEEK2
 │
-└── Day3
+└── Day4
     │
     ├── Assigment_StrNumData
     │
@@ -28,7 +28,7 @@ WEEK2
     └── README.md
 
 
-# 📘 Week 2 – Day 3 Assignment: Advanced SQL String + Numeric + Date Logic
+# 📘 Week 2 – Day 4 Assignment: Advanced SQL String + Numeric + Date Logic
 
 This assignment focuses on advanced SQL transformations involving:
 
@@ -130,7 +130,7 @@ This assignment focuses on advanced SQL transformations involving:
 ---
 📌 Summary
 
-In Week 2 – Day 3, I focused on strengthening Advanced SQL String + Numeric + Date Logic
+In Week 2 – Day 4, I focused on strengthening Advanced SQL String + Numeric + Date Logic
 
 
 Key improvements:
