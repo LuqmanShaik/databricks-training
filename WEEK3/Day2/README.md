@@ -17,25 +17,42 @@ This assignment focuses on reading CSV files using PySpark in Databricks, creati
 
 📚 Concepts Covered
 
+
 🔹 PySpark Basics
+
 🔹 Databricks Environment
+
 🔹 Spark Session
+
 🔹 Reading CSV Files
+
 🔹 Spark DataFrames
+
 🔹 Header Handling
+
 🔹 Schema Inference
+
 🔹 Displaying DataFrames
+
 🔹 File Handling in Databricks
+
 🔹 Structured Data Processing
 
 🧠 KEY LEARNING OUTCOMES
 
+
 ✔ Used Databricks for PySpark execution
+
 ✔ Read CSV files using PySpark
+
 ✔ Created Spark DataFrames
+
 ✔ Used inferSchema and header options
+
 ✔ Displayed structured data in Databricks
+
 ✔ Practiced DataFrame operations
+
 
 📌 SUMMARY
 
