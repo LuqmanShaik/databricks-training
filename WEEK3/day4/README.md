@@ -1,16 +1,16 @@
-# 📁 WEEK3 – DAY3
+# 📁 WEEK3 – DAY4
 
 ## 📂 Folder Structure
 
 WEEK3
 │
-└── Day3
+└── Day4
     │
     ├── README.md
     ├── PySpark_Exercise1.2.ipynb
     └── excersise_queries.py
 
-## 📘 Week 3 – Day 3 Assignment: PySpark DataFrame Operations using Databricks
+## 📘 Week 3 – Day 4 Assignment: PySpark DataFrame Operations using Databricks
 
 This assignment focuses on performing fundamental PySpark DataFrame operations in Databricks, including filtering records, creating new columns, type casting, sorting data, and limiting records.
 
@@ -46,4 +46,4 @@ This assignment focuses on performing fundamental PySpark DataFrame operations i
 
 ## 📌 SUMMARY
 
-In Week 3 – Day 3, I practiced core PySpark DataFrame operations using Databricks. I worked with column transformations, datatype conversions, sorting, and limiting records. These operations provided hands-on experience in processing and transforming structured datasets using PySpark.
+In Week 3 – Day 4, I practiced core PySpark DataFrame operations using Databricks. I worked with column transformations, datatype conversions, sorting, and limiting records. These operations provided hands-on experience in processing and transforming structured datasets using PySpark.
