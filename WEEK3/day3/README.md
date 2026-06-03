@@ -44,4 +44,4 @@ This assignment focuses on performing fundamental PySpark DataFrame operations i
 
 ## 📌 SUMMARY
 
-In Week 3 – Day 3, I practiced core PySpark DataFrame operations using Databricks. I worked with column selection, aliases, filtering, column transformations, datatype conversions, sorting, and limiting records. These operations provided hands-on experience in processing and transforming structured datasets using PySpark.
+In Week 3 – Day 3, I practiced core PySpark DataFrame operations using Databricks. I worked with column selection, aliases, filtering, column transformations. These operations provided hands-on experience in processing and transforming structured datasets using PySpark.
