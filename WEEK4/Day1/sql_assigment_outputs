@@ -188,97 +188,6 @@ SHOW TABLES;
 
 **Query #1**
 
-    SHOW TABLES;
-
-| Tables_in_test |
-| -------------- |
-| customers      |
-| departments    |
-| employees      |
-| orders         |
-
----
-**Query #2**
-
-    SELECT * FROM customers;
-
-| customer_id | customer_name | city      |
-| ----------- | ------------- | --------- |
-| 1           | Amazon        | Hyderabad |
-| 2           | Google        | Bangalore |
-| 3           | Microsoft     | Hyderabad |
-| 4           | Netflix       | Mumbai    |
-| 5           | Meta          | Delhi     |
-| 6           | Adobe         | Pune      |
-| 7           | Amazon        | Hyderabad |
-
----
-**Query #3**
-
-    SELECT * FROM departments;
-
-| dept_id | dept_name   |
-| ------- | ----------- |
-| 1       | Engineering |
-| 2       | Data        |
-| 3       | Finance     |
-| 4       | HR          |
-| 5       | Sales       |
-
----
-**Query #4**
-
-    SELECT * FROM employees;
-
-| emp_id | emp_name | dept_id | salary   | hire_date  | manager_id |
-| ------ | -------- | ------- | -------- | ---------- | ---------- |
-| 101    | John     | 1       | 120000.0 | 2018-01-15 |            |
-| 102    | Mike     | 1       | 95000.0  | 2019-03-10 | 101        |
-| 103    | David    | 1       | 90000.0  | 2021-06-20 | 101        |
-| 104    | Sarah    | 2       | 140000.0 | 2017-08-25 |            |
-| 105    | Priya    | 2       | 110000.0 | 2020-02-14 | 104        |
-| 106    | Ravi     | 2       | 105000.0 | 2022-01-10 | 104        |
-| 107    | Anil     | 2       | 85000.0  | 2023-05-12 | 105        |
-| 108    | Emma     | 3       | 125000.0 | 2016-11-18 |            |
-| 109    | Robert   | 3       | 85000.0  | 2020-04-21 | 108        |
-| 110    | Sophia   | 4       | 95000.0  | 2021-09-11 |            |
-| 111    | Chris    | 4       | 65000.0  | 2024-01-15 | 110        |
-| 112    | James    | 5       | 130000.0 | 2018-12-05 |            |
-| 113    | Linda    | 5       | 100000.0 | 2019-10-10 | 112        |
-| 114    | Kevin    | 5       | 95000.0  | 2022-03-15 | 112        |
-| 115    | Nancy    | 5       | 75000.0  | 2024-06-01 | 113        |
-
----
-**Query #5**
-
-    SELECT * FROM orders;
-
-| order_id | customer_id | order_date | amount  |
-| -------- | ----------- | ---------- | ------- |
-| 1001     | 1           | 2024-01-05 | 25000.0 |
-| 1002     | 2           | 2024-01-10 | 45000.0 |
-| 1003     | 1           | 2024-02-02 | 30000.0 |
-| 1004     | 3           | 2024-02-15 | 55000.0 |
-| 1005     | 2           | 2024-03-01 | 70000.0 |
-| 1006     | 4           | 2024-03-18 | 15000.0 |
-| 1007     | 1           | 2024-04-10 | 45000.0 |
-| 1008     | 5           | 2024-04-25 | 85000.0 |
-| 1009     | 3           | 2024-05-05 | 35000.0 |
-| 1010     | 6           | 2024-05-20 | 40000.0 |
-| 1011     | 2           | 2024-06-10 | 95000.0 |
-| 1012     | 5           | 2024-06-15 | 25000.0 |
-| 1013     | 1           | 2024-07-01 | 60000.0 |
-| 1014     | 4           | 2024-07-08 | 20000.0 |
-| 1015     | 2           | 2024-08-10 | 55000.0 |
-| 1016     | 3           | 2024-08-15 | 65000.0 |
-| 1017     | 5           | 2024-09-01 | 45000.0 |
-| 1018     | 1           | 2024-09-20 | 50000.0 |
-| 1019     | 6           | 2024-10-05 | 30000.0 |
-| 1020     | 2           | 2024-10-22 | 80000.0 |
-
----
-**Query #6**
-
     SELECT e.emp_name,d.dept_name,e.salary
     FROM employees e 
     JOIN departments d 
@@ -303,7 +212,7 @@ SHOW TABLES;
 | Nancy    | Sales       | 75000.0  |
 
 ---
-**Query #7**
+**Query #2**
 
     SELECT d.dept_name,COUNT(e.emp_id) AS employee_count 
     FROM departments d 
@@ -319,7 +228,7 @@ SHOW TABLES;
 | Sales       | 4              |
 
 ---
-**Query #8**
+**Query #3**
 
     SELECT e.emp_name AS employee_name,m.emp_name AS manager_name 
     FROM employees e 
@@ -345,7 +254,7 @@ SHOW TABLES;
 | Nancy         | Linda        |
 
 ---
-**Query #9**
+**Query #4**
 
     SELECT d.dept_name,SUM(e.salary) AS total_salary 
     FROM employees e 
@@ -362,7 +271,7 @@ SHOW TABLES;
 | Sales       | 400000.0     |
 
 ---
-**Query #10**
+**Query #5**
 
     SELECT d.dept_name,AVG(e.salary) AS avg_salary
     FROM employees e 
@@ -379,7 +288,7 @@ SHOW TABLES;
 | Sales       | 100000.0      |
 
 ---
-**Query #11**
+**Query #6**
 
     SELECT d.dept_name,AVG(e.salary) AS avg_salary 
     FROM employees e 
@@ -393,7 +302,7 @@ SHOW TABLES;
 | Data      | 110000.0   |
 
 ---
-**Query #12**
+**Query #7**
 
     SELECT emp_name,salary 
     FROM employees 
@@ -410,7 +319,7 @@ SHOW TABLES;
 | James    | 130000.0 |
 
 ---
-**Query #13**
+**Query #8**
 
     SELECT e.emp_name,e.salary,e.dept_id 
     FROM employees e 
@@ -427,7 +336,7 @@ SHOW TABLES;
 | James    | 130000.0 | 5       |
 
 ---
-**Query #14**
+**Query #9**
 
     SELECT MAX(salary) AS second_highest_salary 
     FROM employees
@@ -439,7 +348,7 @@ SHOW TABLES;
 | 130000.0              |
 
 ---
-**Query #15**
+**Query #10**
 
     SELECT emp_name,dept_id,salary 
     FROM employees e 
@@ -455,7 +364,7 @@ SHOW TABLES;
 | James    | 5       | 130000.0 |
 
 ---
-**Query #16**
+**Query #11**
 
     SELECT emp_name,dept_id,salary,RANK() OVER(PARTITION BY dept_id ORDER BY salary 
     DESC) AS salary_rank 
@@ -480,7 +389,7 @@ SHOW TABLES;
 | Nancy    | 5       | 75000.0  | 4           |
 
 ---
-**Query #17**
+**Query #12**
 
     SELECT * FROM (SELECT emp_name,dept_id,salary,ROW_NUMBER() OVER(PARTITION 
     BY dept_id ORDER BY salary DESC) rn 
@@ -505,7 +414,7 @@ SHOW TABLES;
 | Kevin    | 5       | 95000.0  | 3   |
 
 ---
-**Query #18**
+**Query #13**
 
     SELECT emp_name,hire_date,salary,SUM(salary) OVER(ORDER BY hire_date) AS 
     running_total_salary 
@@ -530,7 +439,7 @@ SHOW TABLES;
 | Nancy    | 2024-06-01 | 75000.0  | 1515000.0            |
 
 ---
-**Query #19**
+**Query #14**
 
     SELECT emp_name,salary,LAG(salary) OVER(ORDER BY hire_date) AS previous_salary 
     FROM employees;
@@ -554,7 +463,7 @@ SHOW TABLES;
 | Nancy    | 75000.0  | 65000.0         |
 
 ---
-**Query #20**
+**Query #15**
 
     SELECT c.customer_id,c.customer_name 
     FROM customers c 
@@ -567,7 +476,7 @@ SHOW TABLES;
 | 7           | Amazon        |
 
 ---
-**Query #21**
+**Query #16**
 
     SELECT * FROM orders o 
     WHERE order_date=(SELECT MAX(order_date) 
@@ -584,7 +493,7 @@ SHOW TABLES;
 | 1020     | 2           | 2024-10-22 | 80000.0 |
 
 ---
-**Query #22**
+**Query #17**
 
     SELECT c.customer_name,SUM(o.amount) AS total_sales 
     FROM customers c 
@@ -602,7 +511,7 @@ SHOW TABLES;
 | Adobe         | 70000.0     |
 
 ---
-**Query #23**
+**Query #18**
 
     SELECT c.customer_name,SUM(o.amount) AS 
     customer_sales,
@@ -622,7 +531,7 @@ SHOW TABLES;
 | Adobe         | 70000.0        | 7.22                    |
 
 ---
-**Query #24**
+**Query #19**
 
     SELECT customer_name 
     FROM customers 
@@ -634,7 +543,7 @@ SHOW TABLES;
 | Amazon        |
 
 ---
-**Query #25**
+**Query #20**
 
     SELECT emp_name,salary,
     CASE
@@ -664,7 +573,7 @@ SHOW TABLES;
 | Nancy    | 75000.0  | Low         |
 
 ---
-**Query #26**
+**Query #21**
 
     SELECT e1.emp_name,e2.emp_name,e1.salary 
     FROM employees e1 
@@ -679,7 +588,7 @@ SHOW TABLES;
 | Sophia   | Kevin    | 95000.0 |
 
 ---
-**Query #27**
+**Query #22**
 
     SELECT c.customer_name,COUNT(o.order_id) AS order_count 
     FROM customers c 
@@ -694,7 +603,7 @@ SHOW TABLES;
 | Google        | 5           |
 
 ---
-**Query #28**
+**Query #23**
 
     SELECT MONTH(order_date) AS month_no,
            SUM(amount) AS total_sales
@@ -708,7 +617,7 @@ SHOW TABLES;
 | 4        | 130000.0    |
 
 ---
-**Query #29**
+**Query #24**
 
     SELECT customer_id,order_id,order_date,
     order_date-LAG(order_date) OVER(PARTITION BY 
@@ -739,7 +648,7 @@ SHOW TABLES;
 | 6           | 1019     | 2024-10-05 | 485      |
 
 ---
-**Query #30**
+**Query #25**
 
     SELECT d.dept_name
     FROM departments d
