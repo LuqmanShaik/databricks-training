@@ -1,0 +1,657 @@
+    SHOW TABLES;
+
+| Tables_in_test |
+| -------------- |
+| customers      |
+| departments    |
+| employees      |
+| orders         |
+
+---
+
+    SELECT * FROM customers;
+
+| customer_id | customer_name | city      |
+| ----------- | ------------- | --------- |
+| 1           | Amazon        | Hyderabad |
+| 2           | Google        | Bangalore |
+| 3           | Microsoft     | Hyderabad |
+| 4           | Netflix       | Mumbai    |
+| 5           | Meta          | Delhi     |
+| 6           | Adobe         | Pune      |
+| 7           | Amazon        | Hyderabad |
+
+---
+
+    SELECT * FROM departments;
+
+| dept_id | dept_name   |
+| ------- | ----------- |
+| 1       | Engineering |
+| 2       | Data        |
+| 3       | Finance     |
+| 4       | HR          |
+| 5       | Sales       |
+
+---
+
+    SELECT * FROM employees;
+
+| emp_id | emp_name | dept_id | salary   | hire_date  | manager_id |
+| ------ | -------- | ------- | -------- | ---------- | ---------- |
+| 101    | John     | 1       | 120000.0 | 2018-01-15 |            |
+| 102    | Mike     | 1       | 95000.0  | 2019-03-10 | 101        |
+| 103    | David    | 1       | 90000.0  | 2021-06-20 | 101        |
+| 104    | Sarah    | 2       | 140000.0 | 2017-08-25 |            |
+| 105    | Priya    | 2       | 110000.0 | 2020-02-14 | 104        |
+| 106    | Ravi     | 2       | 105000.0 | 2022-01-10 | 104        |
+| 107    | Anil     | 2       | 85000.0  | 2023-05-12 | 105        |
+| 108    | Emma     | 3       | 125000.0 | 2016-11-18 |            |
+| 109    | Robert   | 3       | 85000.0  | 2020-04-21 | 108        |
+| 110    | Sophia   | 4       | 95000.0  | 2021-09-11 |            |
+| 111    | Chris    | 4       | 65000.0  | 2024-01-15 | 110        |
+| 112    | James    | 5       | 130000.0 | 2018-12-05 |            |
+| 113    | Linda    | 5       | 100000.0 | 2019-10-10 | 112        |
+| 114    | Kevin    | 5       | 95000.0  | 2022-03-15 | 112        |
+| 115    | Nancy    | 5       | 75000.0  | 2024-06-01 | 113        |
+
+---
+
+    SELECT * FROM orders;
+
+| order_id | customer_id | order_date | amount  |
+| -------- | ----------- | ---------- | ------- |
+| 1001     | 1           | 2024-01-05 | 25000.0 |
+| 1002     | 2           | 2024-01-10 | 45000.0 |
+| 1003     | 1           | 2024-02-02 | 30000.0 |
+| 1004     | 3           | 2024-02-15 | 55000.0 |
+| 1005     | 2           | 2024-03-01 | 70000.0 |
+| 1006     | 4           | 2024-03-18 | 15000.0 |
+| 1007     | 1           | 2024-04-10 | 45000.0 |
+| 1008     | 5           | 2024-04-25 | 85000.0 |
+| 1009     | 3           | 2024-05-05 | 35000.0 |
+| 1010     | 6           | 2024-05-20 | 40000.0 |
+| 1011     | 2           | 2024-06-10 | 95000.0 |
+| 1012     | 5           | 2024-06-15 | 25000.0 |
+| 1013     | 1           | 2024-07-01 | 60000.0 |
+| 1014     | 4           | 2024-07-08 | 20000.0 |
+| 1015     | 2           | 2024-08-10 | 55000.0 |
+| 1016     | 3           | 2024-08-15 | 65000.0 |
+| 1017     | 5           | 2024-09-01 | 45000.0 |
+| 1018     | 1           | 2024-09-20 | 50000.0 |
+| 1019     | 6           | 2024-10-05 | 30000.0 |
+| 1020     | 2           | 2024-10-22 | 80000.0 |
+
+---
+
+**Query #1**
+
+    SHOW TABLES;
+
+| Tables_in_test |
+| -------------- |
+| customers      |
+| departments    |
+| employees      |
+| orders         |
+
+---
+**Query #2**
+
+    SELECT * FROM customers;
+
+| customer_id | customer_name | city      |
+| ----------- | ------------- | --------- |
+| 1           | Amazon        | Hyderabad |
+| 2           | Google        | Bangalore |
+| 3           | Microsoft     | Hyderabad |
+| 4           | Netflix       | Mumbai    |
+| 5           | Meta          | Delhi     |
+| 6           | Adobe         | Pune      |
+| 7           | Amazon        | Hyderabad |
+
+---
+**Query #3**
+
+    SELECT * FROM departments;
+
+| dept_id | dept_name   |
+| ------- | ----------- |
+| 1       | Engineering |
+| 2       | Data        |
+| 3       | Finance     |
+| 4       | HR          |
+| 5       | Sales       |
+
+---
+**Query #4**
+
+    SELECT * FROM employees;
+
+| emp_id | emp_name | dept_id | salary   | hire_date  | manager_id |
+| ------ | -------- | ------- | -------- | ---------- | ---------- |
+| 101    | John     | 1       | 120000.0 | 2018-01-15 |            |
+| 102    | Mike     | 1       | 95000.0  | 2019-03-10 | 101        |
+| 103    | David    | 1       | 90000.0  | 2021-06-20 | 101        |
+| 104    | Sarah    | 2       | 140000.0 | 2017-08-25 |            |
+| 105    | Priya    | 2       | 110000.0 | 2020-02-14 | 104        |
+| 106    | Ravi     | 2       | 105000.0 | 2022-01-10 | 104        |
+| 107    | Anil     | 2       | 85000.0  | 2023-05-12 | 105        |
+| 108    | Emma     | 3       | 125000.0 | 2016-11-18 |            |
+| 109    | Robert   | 3       | 85000.0  | 2020-04-21 | 108        |
+| 110    | Sophia   | 4       | 95000.0  | 2021-09-11 |            |
+| 111    | Chris    | 4       | 65000.0  | 2024-01-15 | 110        |
+| 112    | James    | 5       | 130000.0 | 2018-12-05 |            |
+| 113    | Linda    | 5       | 100000.0 | 2019-10-10 | 112        |
+| 114    | Kevin    | 5       | 95000.0  | 2022-03-15 | 112        |
+| 115    | Nancy    | 5       | 75000.0  | 2024-06-01 | 113        |
+
+---
+**Query #5**
+
+    SELECT * FROM orders;
+
+| order_id | customer_id | order_date | amount  |
+| -------- | ----------- | ---------- | ------- |
+| 1001     | 1           | 2024-01-05 | 25000.0 |
+| 1002     | 2           | 2024-01-10 | 45000.0 |
+| 1003     | 1           | 2024-02-02 | 30000.0 |
+| 1004     | 3           | 2024-02-15 | 55000.0 |
+| 1005     | 2           | 2024-03-01 | 70000.0 |
+| 1006     | 4           | 2024-03-18 | 15000.0 |
+| 1007     | 1           | 2024-04-10 | 45000.0 |
+| 1008     | 5           | 2024-04-25 | 85000.0 |
+| 1009     | 3           | 2024-05-05 | 35000.0 |
+| 1010     | 6           | 2024-05-20 | 40000.0 |
+| 1011     | 2           | 2024-06-10 | 95000.0 |
+| 1012     | 5           | 2024-06-15 | 25000.0 |
+| 1013     | 1           | 2024-07-01 | 60000.0 |
+| 1014     | 4           | 2024-07-08 | 20000.0 |
+| 1015     | 2           | 2024-08-10 | 55000.0 |
+| 1016     | 3           | 2024-08-15 | 65000.0 |
+| 1017     | 5           | 2024-09-01 | 45000.0 |
+| 1018     | 1           | 2024-09-20 | 50000.0 |
+| 1019     | 6           | 2024-10-05 | 30000.0 |
+| 1020     | 2           | 2024-10-22 | 80000.0 |
+
+---
+**Query #6**
+
+    SELECT e.emp_name,d.dept_name,e.salary
+    FROM employees e 
+    JOIN departments d 
+    ON e.dept_id=d.dept_id;
+
+| emp_name | dept_name   | salary   |
+| -------- | ----------- | -------- |
+| John     | Engineering | 120000.0 |
+| Mike     | Engineering | 95000.0  |
+| David    | Engineering | 90000.0  |
+| Sarah    | Data        | 140000.0 |
+| Priya    | Data        | 110000.0 |
+| Ravi     | Data        | 105000.0 |
+| Anil     | Data        | 85000.0  |
+| Emma     | Finance     | 125000.0 |
+| Robert   | Finance     | 85000.0  |
+| Sophia   | HR          | 95000.0  |
+| Chris    | HR          | 65000.0  |
+| James    | Sales       | 130000.0 |
+| Linda    | Sales       | 100000.0 |
+| Kevin    | Sales       | 95000.0  |
+| Nancy    | Sales       | 75000.0  |
+
+---
+**Query #7**
+
+    SELECT d.dept_name,COUNT(e.emp_id) AS employee_count 
+    FROM departments d 
+    LEFT JOIN employees e ON d.dept_id=e.dept_id 
+    GROUP BY d.dept_name;
+
+| dept_name   | employee_count |
+| ----------- | -------------- |
+| Engineering | 3              |
+| Data        | 4              |
+| Finance     | 2              |
+| HR          | 2              |
+| Sales       | 4              |
+
+---
+**Query #8**
+
+    SELECT e.emp_name AS employee_name,m.emp_name AS manager_name 
+    FROM employees e 
+    LEFT JOIN employees m 
+    ON e.manager_id=m.emp_id;
+
+| employee_name | manager_name |
+| ------------- | ------------ |
+| John          |              |
+| Mike          | John         |
+| David         | John         |
+| Sarah         |              |
+| Priya         | Sarah        |
+| Ravi          | Sarah        |
+| Anil          | Priya        |
+| Emma          |              |
+| Robert        | Emma         |
+| Sophia        |              |
+| Chris         | Sophia       |
+| James         |              |
+| Linda         | James        |
+| Kevin         | James        |
+| Nancy         | Linda        |
+
+---
+**Query #9**
+
+    SELECT d.dept_name,SUM(e.salary) AS total_salary 
+    FROM employees e 
+    JOIN departments d 
+    ON e.dept_id=d.dept_id 
+    GROUP BY d.dept_name;
+
+| dept_name   | total_salary |
+| ----------- | ------------ |
+| Engineering | 305000.0     |
+| Data        | 440000.0     |
+| Finance     | 210000.0     |
+| HR          | 160000.0     |
+| Sales       | 400000.0     |
+
+---
+**Query #10**
+
+    SELECT d.dept_name,AVG(e.salary) AS avg_salary
+    FROM employees e 
+    JOIN departments d 
+    ON e.dept_id=d.dept_id
+    GROUP BY d.dept_name;
+
+| dept_name   | avg_salary    |
+| ----------- | ------------- |
+| Engineering | 101666.666667 |
+| Data        | 110000.0      |
+| Finance     | 105000.0      |
+| HR          | 80000.0       |
+| Sales       | 100000.0      |
+
+---
+**Query #11**
+
+    SELECT d.dept_name,AVG(e.salary) AS avg_salary 
+    FROM employees e 
+    JOIN departments d 
+    ON e.dept_id=d.dept_id 
+    GROUP BY d.dept_name 
+    ORDER BY avg_salary DESC LIMIT 1;
+
+| dept_name | avg_salary |
+| --------- | ---------- |
+| Data      | 110000.0   |
+
+---
+**Query #12**
+
+    SELECT emp_name,salary 
+    FROM employees 
+    WHERE salary>(SELECT AVG(salary) 
+    FROM employees);
+
+| emp_name | salary   |
+| -------- | -------- |
+| John     | 120000.0 |
+| Sarah    | 140000.0 |
+| Priya    | 110000.0 |
+| Ravi     | 105000.0 |
+| Emma     | 125000.0 |
+| James    | 130000.0 |
+
+---
+**Query #13**
+
+    SELECT e.emp_name,e.salary,e.dept_id 
+    FROM employees e 
+    WHERE e.salary>(SELECT AVG(salary) 
+    FROM employees 
+    WHERE dept_id=e.dept_id);
+
+| emp_name | salary   | dept_id |
+| -------- | -------- | ------- |
+| John     | 120000.0 | 1       |
+| Sarah    | 140000.0 | 2       |
+| Emma     | 125000.0 | 3       |
+| Sophia   | 95000.0  | 4       |
+| James    | 130000.0 | 5       |
+
+---
+**Query #14**
+
+    SELECT MAX(salary) AS second_highest_salary 
+    FROM employees
+    WHERE salary<(SELECT 
+    MAX(salary) FROM employees);
+
+| second_highest_salary |
+| --------------------- |
+| 130000.0              |
+
+---
+**Query #15**
+
+    SELECT emp_name,dept_id,salary 
+    FROM employees e 
+    WHERE salary=(SELECT MAX(salary) 
+    FROM employees WHERE dept_id=e.dept_id);
+
+| emp_name | dept_id | salary   |
+| -------- | ------- | -------- |
+| John     | 1       | 120000.0 |
+| Sarah    | 2       | 140000.0 |
+| Emma     | 3       | 125000.0 |
+| Sophia   | 4       | 95000.0  |
+| James    | 5       | 130000.0 |
+
+---
+**Query #16**
+
+    SELECT emp_name,dept_id,salary,RANK() OVER(PARTITION BY dept_id ORDER BY salary 
+    DESC) AS salary_rank 
+    FROM employees;
+
+| emp_name | dept_id | salary   | salary_rank |
+| -------- | ------- | -------- | ----------- |
+| John     | 1       | 120000.0 | 1           |
+| Mike     | 1       | 95000.0  | 2           |
+| David    | 1       | 90000.0  | 3           |
+| Sarah    | 2       | 140000.0 | 1           |
+| Priya    | 2       | 110000.0 | 2           |
+| Ravi     | 2       | 105000.0 | 3           |
+| Anil     | 2       | 85000.0  | 4           |
+| Emma     | 3       | 125000.0 | 1           |
+| Robert   | 3       | 85000.0  | 2           |
+| Sophia   | 4       | 95000.0  | 1           |
+| Chris    | 4       | 65000.0  | 2           |
+| James    | 5       | 130000.0 | 1           |
+| Linda    | 5       | 100000.0 | 2           |
+| Kevin    | 5       | 95000.0  | 3           |
+| Nancy    | 5       | 75000.0  | 4           |
+
+---
+**Query #17**
+
+    SELECT * FROM (SELECT emp_name,dept_id,salary,ROW_NUMBER() OVER(PARTITION 
+    BY dept_id ORDER BY salary DESC) rn 
+    FROM employees) 
+    t
+    WHERE rn<=3;
+
+| emp_name | dept_id | salary   | rn  |
+| -------- | ------- | -------- | --- |
+| John     | 1       | 120000.0 | 1   |
+| Mike     | 1       | 95000.0  | 2   |
+| David    | 1       | 90000.0  | 3   |
+| Sarah    | 2       | 140000.0 | 1   |
+| Priya    | 2       | 110000.0 | 2   |
+| Ravi     | 2       | 105000.0 | 3   |
+| Emma     | 3       | 125000.0 | 1   |
+| Robert   | 3       | 85000.0  | 2   |
+| Sophia   | 4       | 95000.0  | 1   |
+| Chris    | 4       | 65000.0  | 2   |
+| James    | 5       | 130000.0 | 1   |
+| Linda    | 5       | 100000.0 | 2   |
+| Kevin    | 5       | 95000.0  | 3   |
+
+---
+**Query #18**
+
+    SELECT emp_name,hire_date,salary,SUM(salary) OVER(ORDER BY hire_date) AS 
+    running_total_salary 
+    FROM employees;
+
+| emp_name | hire_date  | salary   | running_total_salary |
+| -------- | ---------- | -------- | -------------------- |
+| Emma     | 2016-11-18 | 125000.0 | 125000.0             |
+| Sarah    | 2017-08-25 | 140000.0 | 265000.0             |
+| John     | 2018-01-15 | 120000.0 | 385000.0             |
+| James    | 2018-12-05 | 130000.0 | 515000.0             |
+| Mike     | 2019-03-10 | 95000.0  | 610000.0             |
+| Linda    | 2019-10-10 | 100000.0 | 710000.0             |
+| Priya    | 2020-02-14 | 110000.0 | 820000.0             |
+| Robert   | 2020-04-21 | 85000.0  | 905000.0             |
+| David    | 2021-06-20 | 90000.0  | 995000.0             |
+| Sophia   | 2021-09-11 | 95000.0  | 1090000.0            |
+| Ravi     | 2022-01-10 | 105000.0 | 1195000.0            |
+| Kevin    | 2022-03-15 | 95000.0  | 1290000.0            |
+| Anil     | 2023-05-12 | 85000.0  | 1375000.0            |
+| Chris    | 2024-01-15 | 65000.0  | 1440000.0            |
+| Nancy    | 2024-06-01 | 75000.0  | 1515000.0            |
+
+---
+**Query #19**
+
+    SELECT emp_name,salary,LAG(salary) OVER(ORDER BY hire_date) AS previous_salary 
+    FROM employees;
+
+| emp_name | salary   | previous_salary |
+| -------- | -------- | --------------- |
+| Emma     | 125000.0 |                 |
+| Sarah    | 140000.0 | 125000.0        |
+| John     | 120000.0 | 140000.0        |
+| James    | 130000.0 | 120000.0        |
+| Mike     | 95000.0  | 130000.0        |
+| Linda    | 100000.0 | 95000.0         |
+| Priya    | 110000.0 | 100000.0        |
+| Robert   | 85000.0  | 110000.0        |
+| David    | 90000.0  | 85000.0         |
+| Sophia   | 95000.0  | 90000.0         |
+| Ravi     | 105000.0 | 95000.0         |
+| Kevin    | 95000.0  | 105000.0        |
+| Anil     | 85000.0  | 95000.0         |
+| Chris    | 65000.0  | 85000.0         |
+| Nancy    | 75000.0  | 65000.0         |
+
+---
+**Query #20**
+
+    SELECT c.customer_id,c.customer_name 
+    FROM customers c 
+    LEFT JOIN orders o 
+    ON c.customer_id=o.customer_id
+    WHERE o.order_id IS NULL;
+
+| customer_id | customer_name |
+| ----------- | ------------- |
+| 7           | Amazon        |
+
+---
+**Query #21**
+
+    SELECT * FROM orders o 
+    WHERE order_date=(SELECT MAX(order_date) 
+    FROM orders 
+    WHERE customer_id=o.customer_id);
+
+| order_id | customer_id | order_date | amount  |
+| -------- | ----------- | ---------- | ------- |
+| 1014     | 4           | 2024-07-08 | 20000.0 |
+| 1016     | 3           | 2024-08-15 | 65000.0 |
+| 1017     | 5           | 2024-09-01 | 45000.0 |
+| 1018     | 1           | 2024-09-20 | 50000.0 |
+| 1019     | 6           | 2024-10-05 | 30000.0 |
+| 1020     | 2           | 2024-10-22 | 80000.0 |
+
+---
+**Query #22**
+
+    SELECT c.customer_name,SUM(o.amount) AS total_sales 
+    FROM customers c 
+    JOIN orders o 
+    ON c.customer_id=o.customer_id 
+    GROUP BY c.customer_name;
+
+| customer_name | total_sales |
+| ------------- | ----------- |
+| Amazon        | 210000.0    |
+| Google        | 345000.0    |
+| Microsoft     | 155000.0    |
+| Netflix       | 35000.0     |
+| Meta          | 155000.0    |
+| Adobe         | 70000.0     |
+
+---
+**Query #23**
+
+    SELECT c.customer_name,SUM(o.amount) AS 
+    customer_sales,
+    ROUND(SUM(o.amount)*100/(SELECT SUM(amount) FROM orders),2) AS 
+    contribution_percentage 
+    FROM customers c 
+    JOIN orders o ON c.customer_id=o.customer_id 
+    GROUP BY c.customer_name;
+
+| customer_name | customer_sales | contribution_percentage |
+| ------------- | -------------- | ----------------------- |
+| Amazon        | 210000.0       | 21.65                   |
+| Google        | 345000.0       | 35.57                   |
+| Microsoft     | 155000.0       | 15.98                   |
+| Netflix       | 35000.0        | 3.61                    |
+| Meta          | 155000.0       | 15.98                   |
+| Adobe         | 70000.0        | 7.22                    |
+
+---
+**Query #24**
+
+    SELECT customer_name 
+    FROM customers 
+    GROUP BY customer_name 
+    HAVING COUNT(*)>1;
+
+| customer_name |
+| ------------- |
+| Amazon        |
+
+---
+**Query #25**
+
+    SELECT emp_name,salary,
+    CASE
+    WHEN salary<80000 
+    THEN 'Low' 
+    WHEN salary BETWEEN 80000 AND 120000 
+    THEN 'Medium' ELSE 'High' 
+    END AS salary_band 
+    FROM employees;
+
+| emp_name | salary   | salary_band |
+| -------- | -------- | ----------- |
+| John     | 120000.0 | Medium      |
+| Mike     | 95000.0  | Medium      |
+| David    | 90000.0  | Medium      |
+| Sarah    | 140000.0 | High        |
+| Priya    | 110000.0 | Medium      |
+| Ravi     | 105000.0 | Medium      |
+| Anil     | 85000.0  | Medium      |
+| Emma     | 125000.0 | High        |
+| Robert   | 85000.0  | Medium      |
+| Sophia   | 95000.0  | Medium      |
+| Chris    | 65000.0  | Low         |
+| James    | 130000.0 | High        |
+| Linda    | 100000.0 | Medium      |
+| Kevin    | 95000.0  | Medium      |
+| Nancy    | 75000.0  | Low         |
+
+---
+**Query #26**
+
+    SELECT e1.emp_name,e2.emp_name,e1.salary 
+    FROM employees e1 
+    JOIN employees e2 
+    ON e1.salary=e2.salary AND e1.emp_id<e2.emp_id;
+
+| emp_name | emp_name | salary  |
+| -------- | -------- | ------- |
+| Mike     | Sophia   | 95000.0 |
+| Mike     | Kevin    | 95000.0 |
+| Anil     | Robert   | 85000.0 |
+| Sophia   | Kevin    | 95000.0 |
+
+---
+**Query #27**
+
+    SELECT c.customer_name,COUNT(o.order_id) AS order_count 
+    FROM customers c 
+    JOIN orders o 
+    ON c.customer_id=o.customer_id 
+    GROUP BY c.customer_name 
+    HAVING COUNT(o.order_id)>3;
+
+| customer_name | order_count |
+| ------------- | ----------- |
+| Amazon        | 5           |
+| Google        | 5           |
+
+---
+**Query #28**
+
+    SELECT MONTH(order_date) AS month_no,
+           SUM(amount) AS total_sales
+    FROM orders
+    GROUP BY MONTH(order_date)
+    ORDER BY total_sales DESC
+    LIMIT 1;
+
+| month_no | total_sales |
+| -------- | ----------- |
+| 4        | 130000.0    |
+
+---
+**Query #29**
+
+    SELECT customer_id,order_id,order_date,
+    order_date-LAG(order_date) OVER(PARTITION BY 
+    customer_id ORDER BY order_date) AS days_gap 
+    FROM orders;
+
+| customer_id | order_id | order_date | days_gap |
+| ----------- | -------- | ---------- | -------- |
+| 1           | 1001     | 2024-01-05 |          |
+| 1           | 1003     | 2024-02-02 | 97       |
+| 1           | 1007     | 2024-04-10 | 208      |
+| 1           | 1013     | 2024-07-01 | 291      |
+| 1           | 1018     | 2024-09-20 | 219      |
+| 2           | 1002     | 2024-01-10 |          |
+| 2           | 1005     | 2024-03-01 | 191      |
+| 2           | 1011     | 2024-06-10 | 309      |
+| 2           | 1015     | 2024-08-10 | 200      |
+| 2           | 1020     | 2024-10-22 | 212      |
+| 3           | 1004     | 2024-02-15 |          |
+| 3           | 1009     | 2024-05-05 | 290      |
+| 3           | 1016     | 2024-08-15 | 310      |
+| 4           | 1006     | 2024-03-18 |          |
+| 4           | 1014     | 2024-07-08 | 390      |
+| 5           | 1008     | 2024-04-25 |          |
+| 5           | 1012     | 2024-06-15 | 190      |
+| 5           | 1017     | 2024-09-01 | 286      |
+| 6           | 1010     | 2024-05-20 |          |
+| 6           | 1019     | 2024-10-05 | 485      |
+
+---
+**Query #30**
+
+    SELECT d.dept_name
+    FROM departments d
+    LEFT JOIN employees e
+    ON d.dept_id = e.dept_id
+    GROUP BY d.dept_id, d.dept_name
+    HAVING MAX(e.hire_date) < DATE_SUB(CURDATE(), INTERVAL 2 YEAR);
+
+| dept_name   |
+| ----------- |
+| Engineering |
+| Data        |
+| Finance     |
+| HR          |
+| Sales       |
+
+---
