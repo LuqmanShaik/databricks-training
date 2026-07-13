@@ -1,0 +1,102 @@
+customer_id,customer_name,city,state,phone,email,join_date
+1001.0,Vihaan1,Pune,Maharashtra,9813356886,vihaan1@gmail.com,2025-01-14
+1002.0,Kiran2,Chennai,Tamil Nadu,9839958838,kiran2@gmail.com,2024-03-12
+1003.0,Vihaan3,Pune,Maharashtra,9883197857,vihaan3@gmail.com,2024-02-14
+1004.0,Meena4,Delhi,Delhi,9814265799,meena4@gmail.com,2024-01-16
+1005.0,Rahul5,Hyderabad,Telangana,9841227216,rahul5@gmail.com,2024-09-15
+1006.0,Aarav6,Delhi,Delhi,9885329037,aarav6@gmail.com,2024-04-11
+1007.0,Sneha7,Pune,Maharashtra,9866306997,sneha7@gmail.com,2024-04-22
+1008.0,Varun8,Mumbai,Maharashtra,9847338124,varun8@gmail.com,2025-02-18
+1009.0,Sai9,Hyderabad,Telangana,9866722344,sai9@gmail.com,2024-06-23
+1010.0,Arjun10,Chennai,Tamil Nadu,9838898923,arjun10@gmail.com,2025-05-05
+1011.0,Vihaan11,Chennai,Tamil Nadu,9822448136,vihaan11@gmail.com,2024-07-13
+1012.0,Rohit12,Hyderabad,Telangana,9856164955,rohit12@gmail.com,2024-11-05
+1013.0,Vivaan13,Chennai,Tamil Nadu,9871662963,vivaan13@gmail.com,2024-10-01
+1014.0,Suresh14,Hyderabad,Telangana,9820576383,suresh14@gmail.com,2024-10-09
+,Kavya15,Chennai,Tamil Nadu,9858537831,kavya15@gmail.com,2024-10-22
+1016.0,Aditya16,Bengaluru,Karnataka,9816150444,aditya16@gmail.com,2024-12-04
+1017.0,Priya17,Bengaluru,Karnataka,9820709497,priya17@gmail.com,2025-03-13
+1018.0,Vihaan18,Bengaluru,Karnataka,9861019678,vihaan18@gmail.com,2024-05-22
+1019.0,Rohit19,Mumbai,Maharashtra,9831831063,rohit19@gmail.com,2024-07-08
+1020.0,Rahul20,Chennai,Tamil Nadu,9899949389,rahul20@gmail.com,2024-05-16
+1021.0,Aditya21,Pune,Maharashtra,9891756179,aditya21@gmail.com,2024-11-21
+1022.0,Sneha22,Bengaluru,Karnataka,9842857966,sneha22@gmail.com,2024-03-24
+1023.0,Suresh23,Mumbai,Maharashtra,9846231783,suresh23@gmail.com,2025-04-18
+1024.0,Sneha24,Pune,Maharashtra,9839476249,sneha24@gmail.com,2024-12-16
+1025.0,Vivaan25,Chennai,Tamil Nadu,9840742311,vivaan25@gmail.com,2025-02-24
+1026.0,Anjali26,Hyderabad,Telangana,9863843426,anjali26@gmail.com,2024-05-17
+1027.0,Rahul27,Hyderabad,Telangana,9886125617,rahul27@gmail.com,2025-03-24
+1028.0,Anjali28,Pune,Maharashtra,9838538251,anjali28@gmail.com,2024-12-01
+1029.0,Suresh29,Mumbai,Maharashtra,9896282117,suresh29@gmail.com,2024-08-22
+1030.0,Neha30,Bengaluru,Karnataka,9828740864,neha30@gmail.com,2024-05-06
+1031.0,Sneha31,Pune,Maharashtra,9882340307,sneha31@gmail.com,2024-05-14
+1032.0,Varun32,Pune,Maharashtra,9867503414,varun32@gmail.com,2025-04-04
+1033.0,Suresh33,Delhi,Delhi,9858586340,suresh33@gmail.com,2024-04-22
+1034.0,Divya34,Bengaluru,Karnataka,9876238574,divya34@gmail.com,2024-02-16
+1035.0,Vihaan35,Hyderabad,Telangana,9830514014,vihaan35@gmail.com,2024-11-17
+1036.0,Meena36,Bengaluru,Karnataka,9890048665,meena36@gmail.com,2024-02-02
+1037.0,Suresh37,Mumbai,Maharashtra,9889978790,suresh37@gmail.com,2024-08-27
+1038.0,Neha38,Delhi,Delhi,9884252722,neha38@gmail.com,2025-03-16
+1039.0,Vihaan39,Hyderabad,Telangana,9882070937,vihaan39@gmail.com,2025-01-19
+1040.0,Anjali40,Chennai,Tamil Nadu,9824972279,anjali40@gmail.com,2024-05-30
+1041.0,Sai41,Mumbai,Maharashtra,9870897765,sai41@gmail.com,2024-01-02
+1042.0,Neha42,Pune,Maharashtra,9877187530,neha42@gmail.com,2025-01-25
+1043.0,Divya43,Bengaluru,Karnataka,9824282218,divya43@gmail.com,2025-03-21
+1044.0,Priya44,Pune,Maharashtra,9895758349,priya44@gmail.com,2024-09-16
+1045.0,Rahul45,Delhi,Delhi,9830513739,rahul45@gmail.com,2024-07-10
+1046.0,Sneha46,Bengaluru,Karnataka,9881182864,sneha46@gmail.com,2025-04-15
+1047.0,Kavya47,Hyderabad,Telangana,9853507489,kavya47@gmail.com,2024-09-07
+1048.0,Vihaan48,Hyderabad,Telangana,9858718453,vihaan48@gmail.com,2025-03-25
+1049.0,Kiran49,Chennai,Tamil Nadu,9817774584,kiran49@gmail.com,2024-05-03
+1050.0,Aditya50,Delhi,Delhi,9821496211,aditya50@gmail.com,2025-01-09
+1051.0,Aditya51,Mumbai,Maharashtra,9881498611,aditya51@gmail.com,2025-01-27
+1052.0,Arjun52,Bengaluru,Karnataka,9898550256,arjun52@gmail.com,2024-08-31
+1053.0,Sai53,Delhi,Delhi,9845575298,sai53@gmail.com,2024-09-27
+1054.0,Meena54,Delhi,Delhi,9838427073,meena54@gmail.com,2025-04-20
+,Rahul55,Delhi,Delhi,9851837852,rahul55@gmail.com,2024-07-23
+1056.0,Rohit56,Pune,Maharashtra,9868800797,rohit56@gmail.com,2025-04-05
+1057.0,Nikhil57,Delhi,Delhi,9826240908,nikhil57@gmail.com,2024-05-06
+1058.0,Aditya58,Bengaluru,Karnataka,9855377076,aditya58@gmail.com,2024-01-11
+1059.0,Sneha59,Delhi,Delhi,9840885476,sneha59@gmail.com,2024-10-28
+1060.0,Aarav60,Bengaluru,Karnataka,9819528530,aarav60@gmail.com,2024-12-28
+1061.0,Vivaan61,Pune,Maharashtra,9840728046,vivaan61@gmail.com,2024-02-04
+1062.0,Anjali62,Hyderabad,Telangana,9819510312,anjali62@gmail.com,2024-09-20
+1063.0,Neha63,Bengaluru,Karnataka,9899788677,neha63@gmail.com,2024-09-05
+1064.0,Sneha64,Bengaluru,Karnataka,9827758595,sneha64@gmail.com,2025-01-05
+1065.0,Varun65,Delhi,Delhi,9873440831,varun65@gmail.com,2024-05-04
+1066.0,Meena66,Mumbai,Maharashtra,9835556386,meena66@gmail.com,2024-02-18
+1067.0,Meena67,Hyderabad,Telangana,9857553014,meena67@gmail.com,2024-08-04
+1068.0,Nikhil68,Mumbai,Maharashtra,9817270733,nikhil68@gmail.com,2024-12-10
+1069.0,Vihaan69,Pune,Maharashtra,9818135295,vihaan69@gmail.com,2024-07-25
+1070.0,Anjali70,Pune,Maharashtra,9824665841,anjali70@gmail.com,2024-05-07
+1071.0,Rahul71,Bengaluru,Karnataka,9881979055,rahul71@gmail.com,2024-08-17
+1072.0,Meena72,Bengaluru,Karnataka,9834627347,meena72@gmail.com,2024-05-22
+1073.0,Kiran73,Mumbai,Maharashtra,9820117988,kiran73@gmail.com,2024-08-14
+1074.0,Vihaan74,Delhi,Delhi,9816789850,vihaan74@gmail.com,2024-11-29
+1075.0,Aarav75,Delhi,Delhi,9822517517,aarav75@gmail.com,2025-04-19
+1076.0,Sai76,Bengaluru,Karnataka,9864547971,sai76@gmail.com,2024-09-05
+1077.0,Rahul77,Mumbai,Maharashtra,9863826716,rahul77@gmail.com,2025-04-07
+1078.0,Sai78,Hyderabad,Telangana,9860864911,sai78@gmail.com,2024-01-02
+1079.0,Neha79,Mumbai,Maharashtra,9871070189,neha79@gmail.com,2024-05-26
+1080.0,Sneha80,Mumbai,Maharashtra,9898834863,sneha80@gmail.com,2025-01-02
+1081.0,Arjun81,Mumbai,Maharashtra,9835487660,arjun81@gmail.com,2024-05-31
+1082.0,Vivaan82,Bengaluru,Karnataka,9887736262,vivaan82@gmail.com,2025-01-11
+1083.0,Vivaan83,Delhi,Delhi,9852091325,vivaan83@gmail.com,2024-01-30
+1084.0,Varun84,Hyderabad,Telangana,9873993471,varun84@gmail.com,2024-09-14
+1085.0,Sai85,Delhi,Delhi,9817634247,sai85@gmail.com,2025-05-06
+1086.0,Aditya86,Delhi,Delhi,9834941004,aditya86@gmail.com,2024-02-05
+1087.0,Aditya87,Delhi,Delhi,9841568532,aditya87@gmail.com,2024-07-25
+1088.0,Varun88,Hyderabad,Telangana,9843046464,varun88@gmail.com,2024-10-23
+1089.0,Vivaan89,Delhi,Delhi,9893131979,vivaan89@gmail.com,2024-02-11
+1090.0,Varun90,Mumbai,Maharashtra,9885863473,varun90@gmail.com,2024-09-24
+1091.0,Neha91,Chennai,Tamil Nadu,9837415205,neha91@gmail.com,2024-12-08
+1092.0,Anjali92,Pune,Maharashtra,9842035886,anjali92@gmail.com,2024-05-15
+1093.0,Arjun93,Mumbai,Maharashtra,9896637649,arjun93@gmail.com,2024-06-02
+1094.0,Anjali94,Mumbai,Maharashtra,9819736572,anjali94@gmail.com,2024-01-05
+1095.0,Kavya95,Mumbai,Maharashtra,9885563727,kavya95@gmail.com,2024-02-21
+1096.0,Sneha96,Hyderabad,Telangana,9838609087,sneha96@gmail.com,2024-09-16
+1097.0,Arjun97,Chennai,Tamil Nadu,9856843172,arjun97@gmail.com,2025-03-27
+1098.0,Kiran98,Hyderabad,Telangana,9859597086,kiran98@gmail.com,2024-05-25
+1099.0,Nikhil99,Bengaluru,Karnataka,9882909480,nikhil99@gmail.com,2024-12-26
+1100.0,Kavya100,Chennai,Tamil Nadu,9897775215,kavya100@gmail.com,2024-09-27
+1006.0,Aarav6,Delhi,Delhi,9885329037,aarav6@gmail.com,2024-04-11
